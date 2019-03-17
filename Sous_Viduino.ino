@@ -13,7 +13,6 @@
 
 // Libraries for the Adafruit RGB/LCD Shield
 #include <Wire.h>
-#include <Adafruit_MCP23017.h>
 #include <Adafruit_RGBLCDShield.h>
 
 // Libraries for the DS18B20 Temperature Sensor
@@ -273,7 +272,7 @@ void Off()
 // ************************************************
 void Tune_Sp()
 {
-   lcd.setBacklight(TEAL);
+   lcd.setBacklight(VIOLET);
    lcd.print(F("Set Temperature:"));
    uint8_t buttons = 0;
    while(true)
@@ -327,7 +326,7 @@ void Tune_Sp()
 // ************************************************
 void TuneP()
 {
-   lcd.setBacklight(TEAL);
+   lcd.setBacklight(VIOLET);
    lcd.print(F("Set Kp"));
 
    uint8_t buttons = 0;
@@ -381,7 +380,7 @@ void TuneP()
 // ************************************************
 void TuneI()
 {
-   lcd.setBacklight(TEAL);
+   lcd.setBacklight(VIOLET);
    lcd.print(F("Set Ki"));
 
    uint8_t buttons = 0;
@@ -435,7 +434,7 @@ void TuneI()
 // ************************************************
 void TuneD()
 {
-   lcd.setBacklight(TEAL);
+   lcd.setBacklight(VIOLET);
    lcd.print(F("Set Kd"));
 
    uint8_t buttons = 0;
@@ -547,6 +546,7 @@ void Run()
       // periodically log to serial port in csv format
       if (millis() - lastLogTime > logInterval)  
       {
+        lastLogTime = millis();
         Serial.print(Input);
         Serial.print(",");
         Serial.println(Output);
